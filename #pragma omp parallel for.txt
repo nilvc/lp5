@@ -1,0 +1,17 @@
+#pragma omp parallel for
+#pragma omp parallel for shared(array)
+#pragma omp parallel for num_threads(4)
+#pragma omp critical
+#pragma omp parallel sections
+#pragma omp section
+#pragma omp parallel for reduction(min:min_val_parallel) reduction(max:max_val_parallel) reduction(+:sum_parallel)
+
+
+to handle bubble sort array swaping 2 options -> 1.critical 2.atomic.
+
+OpenMP supports other reduction operators as well, such as +, -, *, min, max, bitand, bitor, bitxor, and more.
+
+reduction(+:sum_parallel) + -> operator sum_parallel -> shared variable to store the result in.
+
+
+To open a jupyter notebook just type jupyter notebook in terminal
